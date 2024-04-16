@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//ci importiamo il controller
+use App\Http\Controllers\comics;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+// App\Http\Controllers\
+//usiamo questa rotta perchè essendoci standardizzate le funzioni possiamo far fare tutto il lavoro di riportare le rotte a laravel (In breve, questo blocco di codice serve a definire le route per la gestione delle operazioni CRUD sui comics, utilizzando il controller comics all'interno di un'applicazione Laravel. Utilizzando Route::resources(), possiamo standardizzare la definizione delle route e lasciare a Laravel il compito di generare le route appropriate per le operazioni CRUD.)
+Route::resources([
+    '/comics'=> comics::class
+]);
