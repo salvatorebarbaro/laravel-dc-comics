@@ -18,7 +18,8 @@
     <tr class=""> 
       <td class="align-middle">{{$fumetto->title}}</td>
       <td class="col-4 ">{{$fumetto->artists}}</td>
-      <td ><a href="" id="link" class=" text-uppercase">visualizza</a></td>
+      <!-- in questa riga di codice gestiamo la rotta in modo dinamico passandogli la rotta con all'interno l'id del nostro fumetto -->
+      <td class="align-middle"><a href="{{ route('comics.show',$fumetto->id) }}" id="link" class=" text-uppercase">visualizza</a></td>
     </tr>  
     @endforeach
    
@@ -26,7 +27,7 @@
 </table>
 </div>
 <!-- comando usato per vedere cosa stampo in pagina -->
-<!-- @dump($comic) -->
+@dump($comic)
 
 
 

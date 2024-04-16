@@ -38,9 +38,13 @@ class comics extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
+    //funzione a cui noi diamo il nostro model e laravel tramite le sue automazioni ci restituisce il valore che deve far vedere
+    //passiamo come parametro un istanza del nostro model
     {
-        //
+        // route che ci indirizza a comics/show e relatico index che si è preso laravel in automatico tramite il valore che abbiamo inserito come argomento alla funzione show
+        return view('comics.show' ,compact('comic') );
+
     }
 
     /**
