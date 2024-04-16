@@ -24,7 +24,9 @@ class comics extends Controller
      */
     public function create()
     {
-        //
+        // sezione che si occupa della parte in cui verra creato un elemento
+
+        return view('comics/create');
     }
 
     /**
@@ -32,7 +34,7 @@ class comics extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // serve per memorizzare una risorsa nel nostro database
     }
 
     /**
