@@ -19,6 +19,16 @@
             <td class="col-4 ">{{$fumetto->artists}}</td>
             <!-- in questa riga di codice gestiamo la rotta in modo dinamico passandogli la rotta con all'interno l'id del nostro fumetto -->
             <td class="align-middle"><a href="{{ route('comics.show',$fumetto->id) }}" id="link" class="btn btn-dark text-uppercase">visualizza</a></td>
+            <td class="align-middle">
+              <!-- GESTIONE DEL DELETE -->
+              <form action="{{ route('comics.destroy',$fumetto->id) }}" method="POST">
+                @csrf
+
+                @method('DELETE')
+                <button id="link_delete" class="btn btn-dark text-uppercase">elimina</button>
+              </form>
+              
+            </td>
           </tr>  
           @endforeach
         </tbody>
@@ -31,6 +41,11 @@
       
     </div>
     
+
+    
+
+
+
 </div>
 <!-- comando usato per vedere cosa stampo in pagina -->
 <!-- @dump($comic) -->

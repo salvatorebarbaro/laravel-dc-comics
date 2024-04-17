@@ -19,7 +19,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="description" class="form-label text-uppercase">descriozione del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <textarea type="text" class="form-control" id="description" name="description" value="{{$comic->description}}" ></textarea>
+            <textarea type="text" class="form-control" id="description" name="description"  >{{$comic->description}}</textarea>
         </div>
         <div class="mb-3">
             <label for="thumb" class="form-label text-uppercase ">link dell immagine del fumetto</label>
@@ -53,8 +53,8 @@ Dobbiamo inserirlo in ogni form. -->
             <input type="text" class="form-control" id="artists" name="artists" value="{{$comic->artists}}">
         </div>
         <div class="mb-3">
-            <label for="writers" class="form-label text-uppercase">serie del fumetto</label>
-            <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
+            <label for="writers" class="form-label text-uppercase">scrittori</label>
+            <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome e per essere più precisi ci permette di modificarlo poi inseriamo value per avere il valore "salvato  Questo consente di mostrare i valori esistenti del fumetto nel formulario di modifica, consentendo all'utente di visualizzarli e modificarli se necessario." -->
             <input type="text" class="form-control" id="writers" name="writers" value="{{$comic->writers}}">
         </div>
         

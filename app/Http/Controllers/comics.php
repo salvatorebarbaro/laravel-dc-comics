@@ -105,8 +105,13 @@ class comics extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy(Comic $comic)
+    {//sopra inseriamo come sempre il come del nostro model e la nostra variabile 
+
+
+        //questo comando ci serve per cancellare il fumetto
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
