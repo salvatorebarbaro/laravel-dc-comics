@@ -72,17 +72,34 @@ class comics extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
+    //cosi come nella show noi andiamo a passare il comic come parametro cosi facendo laravel in automaico prende i valori dell'id
     {
-        //
+        //restituiamo la rotta verso cui verrà reindirizzata la pagina
+        return view('comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        
+
+        $comic->title = $request['title'];
+        $comic->description = $request['description'];
+        $comic->thumb = $request['thumb'];
+        $comic->price = $request['price'];
+        $comic->series = $request['series'];
+        $comic->sale_date = $request['sale_date'];
+        $comic->type = $request['type'];
+        $comic->artists = implode(", ",explode(' ',$request['artists']) );
+        $comic->writers = implode(", ",explode(' ', $request['writers']));
+
+        $comic->save();
+
+        //STRINGA CHE CI RIDIRIGE ALLA PAGINA SHOW DEL NOSTRO FUMETTO MODIFICATO INSIEME SI SUOI PARAMETRI MODIFICATI
+        return redirect()->route('comics.show',$comic->id);
     }
 
     /**

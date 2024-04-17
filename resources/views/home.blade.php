@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row flex-column align-items-center ">
         <h1 class="text-uppercase text-primary text-center my-5">benvenuto nel nostro server di fumetti</h1>
-            <div class="col-auto">
-                <img class="border rounded-4  " src="https://tse1.mm.bing.net/th/id/OIG2.09P6nOuDQLhuDFoQtiRW?pid=ImgGn" alt="">
+            <div class="col-6">
+                <img class="border rounded-4 img-fluid " src="https://tse1.mm.bing.net/th/id/OIG2.09P6nOuDQLhuDFoQtiRW?pid=ImgGn" alt="">
             </div>
             
             

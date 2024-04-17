@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="container  my-4">
-    <h1 class="text-uppercase text-primary text-center">lista fumetti nel databse</h1>
+    <h1 class="text-uppercase text-primary text-center">lista fumetti nel database</h1>
       <table class="table my-5 ">
         <thead>
           <tr>
