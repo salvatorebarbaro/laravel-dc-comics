@@ -19,3 +19,7 @@ use App\Http\Controllers\comics;
 Route::resources([
     '/comics'=> comics::class
 ]);
+
+Route::get('/',function(){
+    return view('home');
+});

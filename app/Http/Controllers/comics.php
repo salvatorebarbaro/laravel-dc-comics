@@ -36,6 +36,8 @@ class comics extends Controller
     public function store(Request $request)
     {
         // serve per memorizzare una risorsa nel nostro database e lo facciamo tramite una specie di inserimento come abbiamo fatto nei seeder
+        
+        
         // ci inzializziamo un nuovo elemento
         $newComic = new comic();
 
@@ -62,7 +64,7 @@ class comics extends Controller
     //funzione a cui noi diamo il nostro model e laravel tramite le sue automazioni ci restituisce il valore che deve far vedere
     //passiamo come parametro un istanza del nostro model
     {
-        // route che ci indirizza a comics/show e relatico index che si è preso laravel in automatico tramite il valore che abbiamo inserito come argomento alla funzione show
+        // route che ci indirizza a comics/show e relativo index che si è preso laravel in automatico tramite il valore che abbiamo inserito come argomento alla funzione show
         return view('comics.show' ,compact('comic') );
 
     }
