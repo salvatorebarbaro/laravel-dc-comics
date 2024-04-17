@@ -10,27 +10,27 @@ Dobbiamo inserirlo in ogni form. -->
     @csrf
         
         <div class="mb-3">
-            <label for="title comic" class="form-label text-uppercase">Nome del fumetto</label>
+            <label for="title" class="form-label text-uppercase">Nome del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
             <input type="text" class="form-control" id="name" name="title">
         </div>
         <div class="mb-3">
-            <label for="description comic" class="form-label text-uppercase">descriozione del fumetto</label>
+            <label for="description" class="form-label text-uppercase">descriozione del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
             <textarea type="text" class="form-control" id="description" name="description" ></textarea>
         </div>
         <div class="mb-3">
-            <label for="link img" class="form-label text-uppercase ">link dell immagine del fumetto</label>
+            <label for="thumb" class="form-label text-uppercase ">link dell immagine del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="url" class="form-control" id="link" name="thumb">
+            <input type="url" class="form-control" id="thumb" name="thumb">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label text-uppercase ">prezzo del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="number" class="form-control" min="0.01" id="price" name="price" value="number">
+            <input type="text" class="form-control"  id="price" name="price" value="number">
         </div>
         <div class="mb-3">
-            <label for="series comics" class="form-label text-uppercase">serie del fumetto</label>
+            <label for="series" class="form-label text-uppercase">serie del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
             <input type="text" class="form-control" id="series" name="series">
         </div>

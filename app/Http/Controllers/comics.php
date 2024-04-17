@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\comic;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\New_;
 
 class comics extends Controller
 {
@@ -34,7 +35,24 @@ class comics extends Controller
      */
     public function store(Request $request)
     {
-        // serve per memorizzare una risorsa nel nostro database
+        // serve per memorizzare una risorsa nel nostro database e lo facciamo tramite una specie di inserimento come abbiamo fatto nei seeder
+        // ci inzializziamo un nuovo elemento
+        $newComic = new comic();
+
+        $newComic->title = $request['title'];
+        $newComic->description = $request['description'];
+        $newComic->thumb = $request['thumb'];
+        $newComic->price = $request['price'];
+        $newComic->series = $request['series'];
+        $newComic->sale_date = $request['sale_date'];
+        $newComic->type = $request['type'];
+        $newComic->artists = implode(", ",explode(' ',$request['artists']) );
+        $newComic->writers = implode(", ",explode(' ', $request['writers']));
+
+        $newComic->save();
+
+        return redirect()->route('comics.show',$newComic->id);
+
     }
 
     /**
