@@ -17,7 +17,7 @@ Dobbiamo inserirlo in ogni form. -->
             <label for="title" class="form-label text-uppercase">Nome del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
             <!-- abbiamo inserito @error('title')is invalid @enderror per gestire l'errore al di sotto del nostro campo del titolo e cosi sara anche negli altri campi -->
-            <input type="text" class="form-control @error('title')is-invalid @enderror"   id="name" name="title" value="{{$comic->title}}">
+            <input type="text" class="form-control @error('title')is-invalid @enderror"   id="name" name="title" value="{{old ('title' ) ? old ('title' ) : $comic->title}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
         @error('title')
@@ -35,7 +35,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="description" class="form-label text-uppercase">descriozione del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <textarea type="text" class="form-control @error('description')is-invalid @enderror" id="description" name="description"  >{{$comic->description}}</textarea>
+            <textarea type="text" class="form-control @error('description')is-invalid @enderror" id="description" name="description"  >{{ old ('description' ) ? old ('description' ) : $comic->description}}</textarea>
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('description')
@@ -54,7 +54,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="thumb" class="form-label text-uppercase ">link dell immagine del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="url" class="form-control @error('thumb')is-invalid @enderror" id="thumb" name="thumb" value="{{$comic->thumb}}">
+            <input type="url" class="form-control @error('thumb')is-invalid @enderror" id="thumb" name="thumb" value="{{old ('thumb' ) ? old ('thumb' ) : $comic->thumb}}">
         </div>
 
         <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
@@ -71,7 +71,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="price" class="form-label text-uppercase ">prezzo del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="text" class="form-control @error('price')is-invalid @enderror"  id="price" name="price" value="number" value="{{$comic->price}}">
+            <input type="text" class="form-control @error('price')is-invalid @enderror"  id="price" name="price" value="number" value="{{old ('price' ) ? old ('price' ) : $comic->price}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('price')
@@ -90,7 +90,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="series" class="form-label text-uppercase">serie del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="text" class="form-control @error('series')is-invalid @enderror" id="series" name="series" value="{{$comic->series}}">
+            <input type="text" class="form-control @error('series')is-invalid @enderror" id="series" name="series" value="{{old ('series' ) ? old ('series' ) : $comic->series}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('series')
@@ -110,7 +110,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="sale_date" class="form-label text-uppercase">data di vendità</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="date" class="form-control @error('sale_date')is-invalid @enderror" id="sale_date" name="sale_date" value="{{$comic->sale_date}}">
+            <input type="date" class="form-control @error('sale_date')is-invalid @enderror" id="sale_date" name="sale_date" value="{{old ('sale_date' ) ? old ('sale_date' ) : $comic->sale_date}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('sale_date')
@@ -129,7 +129,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="type" class="form-label text-uppercase">tipo</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="text" class="form-control @error('type')is-invalid @enderror" id="type" name="type" value="{{$comic->type}}">
+            <input type="text" class="form-control @error('type')is-invalid @enderror" id="type" name="type" value="{{old ('type') ? old ('type' ) : $comic->type}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('type')
@@ -148,7 +148,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="artists" class="form-label text-uppercase">artisti</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="text" class="form-control @error('artists')is-invalid @enderror" id="artists" name="artists" value="{{$comic->artists}}">
+            <input type="text" class="form-control @error('artists')is-invalid @enderror" id="artists" name="artists" value="{{old ('artists') ? old ('artists') : $comic->artists}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('artists')
@@ -167,7 +167,7 @@ Dobbiamo inserirlo in ogni form. -->
         <div class="mb-3">
             <label for="writers" class="form-label text-uppercase">scrittori</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome e per essere più precisi ci permette di modificarlo poi inseriamo value per avere il valore "salvato  Questo consente di mostrare i valori esistenti del fumetto nel formulario di modifica, consentendo all'utente di visualizzarli e modificarli se necessario." -->
-            <input type="text" class="form-control @error('writers') is-invalid @enderror" id="writers" name="writers" value="{{$comic->writers}}">
+            <input type="text" class="form-control @error('writers') is-invalid @enderror" id="writers" name="writers" value="{{old ('writers') ? old ('writers') : $comic->writers}}">
 
             <!-- inizio gestione errore del titlo con relativo messaggio sotto al campo  giusto -->
             @error('writers')
@@ -179,7 +179,7 @@ Dobbiamo inserirlo in ogni form. -->
     
             @enderror
             <!-- fine -->
-            
+
         </div>
 
 
