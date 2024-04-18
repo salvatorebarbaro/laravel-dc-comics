@@ -4,7 +4,9 @@
 @section('content')
 <div class="container d-flex flex-column align-items-center ">
     <h1 class=" text-center  text-uppercase  text-primary my-4">{{$comic->title}}</h1>
-    <div class="row justify-content-center my-3"><img class=" img-fluid col-4" src="{{$comic->thumb}}" alt="{{$comic->title}}"> </div>
+    <div class="row justify-content-center my-3">
+      <img class=" img-fluid col-6 border  rounded-3 p-0 " src="{{$comic->thumb}}" alt="{{$comic->title}}">
+    </div>
     <table class="table">
       <thead>
         <tr>

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::table('comics', function (Blueprint $table) {
             //
             $table->string('title', 80);
-            $table->mediumText('description');
-            $table->mediumText('thumb');
+            $table->mediumText('description')->nullable();
+            $table->mediumText('thumb')->nullable();
             $table->string('price',8);
             $table->string('series', 60);
             $table->date('sale_date');

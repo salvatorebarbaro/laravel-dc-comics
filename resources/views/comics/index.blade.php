@@ -37,6 +37,8 @@
       <!-- col auto praticamente dice al bottone di occupare solo spazio di cui ha bisogno  e do la route al bottone per poter creare il mio nuovo elemento-->
       <div class="col-auto">
         <a href="{{route('comics.create')}}"  class="btn btn-primary text-uppercase ">aggiungi un fumetto</a>
+
+
       </div>
       
     </div>
@@ -44,11 +46,6 @@
 
     
 
-
-
-</div>
-<!-- comando usato per vedere cosa stampo in pagina -->
-<!-- @dump($comic) -->
 
 
 

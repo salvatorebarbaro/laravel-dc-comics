@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use PhpParser\Node\Expr\New_;
 
 class comics extends Controller
@@ -37,7 +38,12 @@ class comics extends Controller
     {
         // serve per memorizzare una risorsa nel nostro database e lo facciamo tramite una specie di inserimento come abbiamo fatto nei seeder
         
-        
+        // inizio validazione (serve principalemente per eseguire più controlli sui dati inseriti dall'utente)
+        //questa funzione è privata ed è definita sul fondo del foglio , la richiamiamo con this e serve per eseguire tutti i controlli
+        $this->validation($request->all());
+
+
+        // fine validazione
         // ci inzializziamo un nuovo elemento
         $newComic = new comic();
 
@@ -48,8 +54,9 @@ class comics extends Controller
         $newComic->series = $request['series'];
         $newComic->sale_date = $request['sale_date'];
         $newComic->type = $request['type'];
-        $newComic->artists = implode(", ",explode(' ',$request['artists']) );
-        $newComic->writers = implode(", ",explode(' ', $request['writers']));
+        //abbiamo usato string replace perche ci permette di ottenere gli artisti ed gli scrittori divisi correttamente da una virgola tra ogni nome 1 valore è quello da cercare , secondo è quello con cui lo sostituiamo ed il terzo è il soggetto su cui avverranno le modifiche
+        $newComic->artists =str_replace(' ',', ',$request['artists']);
+        $newComic->writers = str_replace(' ',', ',$request['writers']);
 
         $newComic->save();
 
@@ -84,6 +91,13 @@ class comics extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        // inizio validazione (serve principalemente per eseguire più controlli sui dati inseriti dall'utente)
+        //questa funzione è privata ed è definita sul fondo del foglio , la richiamiamo con this e serve per eseguire tutti i controlli
+        $this->validation($request->all());
+
+
+        // fine validazione
         
 
         $comic->title = $request['title'];
@@ -93,8 +107,9 @@ class comics extends Controller
         $comic->series = $request['series'];
         $comic->sale_date = $request['sale_date'];
         $comic->type = $request['type'];
-        $comic->artists = implode(", ",explode(' ',$request['artists']) );
-        $comic->writers = implode(", ",explode(' ', $request['writers']));
+        //abbiamo usato string replace perche ci permette di ottenere gli artisti ed gli scrittori divisi correttamente da una virgola tra ogni nome 1 valore è quello da cercare , secondo è quello con cui lo sostituiamo ed il terzo è il soggetto su cui avverranno le modifiche
+        $comic->artists =str_replace(' ',', ',$request['artists']);
+        $comic->writers = str_replace(' ',', ',$request['writers']);
 
         $comic->save();
 
@@ -114,4 +129,44 @@ class comics extends Controller
 
         return redirect()->route('comics.index');
     }
+
+    private function validation($data){
+
+        $validator= Validator::make($data,[
+            
+            'title' =>'required|max:80',
+            'description' => 'nullable',
+            'thumb' => 'nullable',
+            'price'=> 'required|max:8',
+            'series'=> 'required|max:60',
+            'sale_date'=> 'required|date',
+            'type'=> 'required|max:30',
+            'artists'=> 'required|max:255',
+            'writers'=> 'required|max:255',
+        ],[
+            'title.required' => 'Necessito del titolo per continuare',
+            'price.required' => 'Necessito del prezzo per continuare',
+            'series.required' => 'Necessito della serie per continuare',
+            'sale_date.required' => 'Necessito del data di vendità per continuare',
+            'type.required' => 'Necessito del tipo per continuare',
+            'artists.required' => 'Necessito del/degli artista/i per continuare',
+            'writers.required' => 'Necessito dello/degli scrittore/i  per continuare',
+            //sezione per gestire le lunghezze
+            'title.max' => 'massimi caratteri consentiti sono :max',
+            'price.max' => 'massimi caratteri consentiti sono :max',
+            'series.max' => 'massimi caratteri consentiti sono :max',
+            'sale_date.max' => 'massimi caratteri consentiti sono :max',
+            'type.max' => 'massimi caratteri consentiti sono :max',
+            'artists.max' => 'massimi caratteri consentiti sono :max',
+            'writers.max' => 'massimi caratteri consentiti sono :max',
+
+
+
+            
+        ])->validate();
+
+    }
+
+
+
 }

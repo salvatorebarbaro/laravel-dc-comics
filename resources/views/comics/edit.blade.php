@@ -11,10 +11,12 @@ Dobbiamo inserirlo in ogni form. -->
     @csrf
     <!-- DIRETTIVA INSERITà PER MAPPARE CORRETTAMENTE IL METHOD -->
     @method('PUT')
+
+
         <div class="mb-3">
             <label for="title" class="form-label text-uppercase">Nome del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
-            <input type="text" class="form-control" id="name" name="title" value="{{$comic->title}}">
+            <input type="text" class="form-control "   id="name" name="title" value="{{$comic->title}}">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label text-uppercase">descriozione del fumetto</label>
@@ -57,6 +59,24 @@ Dobbiamo inserirlo in ogni form. -->
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome e per essere più precisi ci permette di modificarlo poi inseriamo value per avere il valore "salvato  Questo consente di mostrare i valori esistenti del fumetto nel formulario di modifica, consentendo all'utente di visualizzarli e modificarli se necessario." -->
             <input type="text" class="form-control" id="writers" name="writers" value="{{$comic->writers}}">
         </div>
+
+        <!-- inizio campo di validazione -->
+        <!-- inserito per gestire la visualizzazione degli errori in pagina -->
+        @if($errors->any())
+        <div class="alert alert-danger ">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>
+                    {{$error}}
+                </li>
+
+                @endforeach
+            </ul>
+        </div>
+
+        @endif
+
+        <!-- fine campo di validazione -->
         
         <div class="row justify-content-center ">
             <div class="col-auto">
