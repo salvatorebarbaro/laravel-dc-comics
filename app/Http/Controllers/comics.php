@@ -50,16 +50,18 @@ class comics extends Controller
         // ci inzializziamo un nuovo elemento
         $newComic = new comic();
 
-        $newComic->title = $request['title'];
-        $newComic->description = $request['description'];
-        $newComic->thumb = $request['thumb'];
-        $newComic->price = $request['price'];
-        $newComic->series = $request['series'];
-        $newComic->sale_date = $request['sale_date'];
-        $newComic->type = $request['type'];
-        //abbiamo usato string replace perche ci permette di ottenere gli artisti ed gli scrittori divisi correttamente da una virgola tra ogni nome 1 valore è quello da cercare , secondo è quello con cui lo sostituiamo ed il terzo è il soggetto su cui avverranno le modifiche
-        $newComic->artists =str_replace(' ',', ',$request['artists']);
-        $newComic->writers = str_replace(' ',', ',$request['writers']);
+        // $newComic->title = $request['title'];
+        // $newComic->description = $request['description'];
+        // $newComic->thumb = $request['thumb'];
+        // $newComic->price = $request['price'];
+        // $newComic->series = $request['series'];
+        // $newComic->sale_date = $request['sale_date'];
+        // $newComic->type = $request['type'];
+        // //abbiamo usato string replace perche ci permette di ottenere gli artisti ed gli scrittori divisi correttamente da una virgola tra ogni nome 1 valore è quello da cercare , secondo è quello con cui lo sostituiamo ed il terzo è il soggetto su cui avverranno le modifiche
+        // $newComic->artists =str_replace(' ',', ',$request['artists']);
+        // $newComic->writers = str_replace(' ',', ',$request['writers']);
+
+        $newComic->fill($request->all());
 
         $newComic->save();
 
@@ -104,16 +106,19 @@ class comics extends Controller
         // fine validazione
         
 
-        $comic->title = $request['title'];
-        $comic->description = $request['description'];
-        $comic->thumb = $request['thumb'];
-        $comic->price = $request['price'];
-        $comic->series = $request['series'];
-        $comic->sale_date = $request['sale_date'];
-        $comic->type = $request['type'];
-        //abbiamo usato string replace perche ci permette di ottenere gli artisti ed gli scrittori divisi correttamente da una virgola tra ogni nome 1 valore è quello da cercare , secondo è quello con cui lo sostituiamo ed il terzo è il soggetto su cui avverranno le modifiche
-        $comic->artists =str_replace(' ',', ',$request['artists']);
-        $comic->writers = str_replace(' ',', ',$request['writers']);
+        // $comic->title = $request['title'];
+        // $comic->description = $request['description'];
+        // $comic->thumb = $request['thumb'];
+        // $comic->price = $request['price'];
+        // $comic->series = $request['series'];
+        // $comic->sale_date = $request['sale_date'];
+        // $comic->type = $request['type'];
+        // //abbiamo usato string replace perche ci permette di ottenere gli artisti ed gli scrittori divisi correttamente da una virgola tra ogni nome 1 valore è quello da cercare , secondo è quello con cui lo sostituiamo ed il terzo è il soggetto su cui avverranno le modifiche
+        // $comic->artists =str_replace(' ',', ',$request['artists']);
+        // $comic->writers = str_replace(' ',', ',$request['writers']);
+
+        //Aggiorna i dati del fumetto con quelli forniti dalla richiesta
+        $comic->fill($request->all());
 
         $comic->save();
 
