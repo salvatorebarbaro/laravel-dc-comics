@@ -42,7 +42,8 @@ class comics extends Controller
         
         // inizio validazione (serve principalemente per eseguire più controlli sui dati inseriti dall'utente)
         //questa funzione è privata ed è definita sul fondo del foglio , la richiamiamo con this e serve per eseguire tutti i controlli
-        $this->validation($request->all());
+        // $this->validation($request->all());
+        $request->validated();
 
 
         // fine validazione
@@ -96,7 +97,8 @@ class comics extends Controller
 
         // inizio validazione (serve principalemente per eseguire più controlli sui dati inseriti dall'utente)
         //questa funzione è privata ed è definita sul fondo del foglio , la richiamiamo con this e serve per eseguire tutti i controlli
-        $this->validation($request->all());
+        // $this->validation($request->all());
+        $request->validated();
 
 
         // fine validazione
