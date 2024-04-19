@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\StorecomicRequest;
 use App\Models\comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +36,7 @@ class comics extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorecomicRequest $request)
     {
         // serve per memorizzare una risorsa nel nostro database e lo facciamo tramite una specie di inserimento come abbiamo fatto nei seeder
         
@@ -89,7 +91,7 @@ class comics extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(StorecomicRequest $request, Comic $comic)
     {
 
         // inizio validazione (serve principalemente per eseguire più controlli sui dati inseriti dall'utente)
@@ -130,42 +132,7 @@ class comics extends Controller
         return redirect()->route('comics.index');
     }
 
-    private function validation($data){
-
-        $validator= Validator::make($data,[
-            
-            'title' =>'required|max:80',
-            'description' => 'nullable',
-            'thumb' => 'nullable',
-            'price'=> 'required|max:8',
-            'series'=> 'required|max:60',
-            'sale_date'=> 'required|date',
-            'type'=> 'required|max:30',
-            'artists'=> 'required|max:255',
-            'writers'=> 'required|max:255',
-        ],[
-            'title.required' => 'Necessito del titolo per continuare',
-            'price.required' => 'Necessito del prezzo per continuare',
-            'series.required' => 'Necessito della serie per continuare',
-            'sale_date.required' => 'Necessito del data di vendità per continuare',
-            'type.required' => 'Necessito del tipo per continuare',
-            'artists.required' => 'Necessito del/degli artista/i per continuare',
-            'writers.required' => 'Necessito dello/degli scrittore/i  per continuare',
-            //sezione per gestire le lunghezze
-            'title.max' => 'massimi caratteri consentiti sono :max',
-            'price.max' => 'massimi caratteri consentiti sono :max',
-            'series.max' => 'massimi caratteri consentiti sono :max',
-            'sale_date.max' => 'massimi caratteri consentiti sono :max',
-            'type.max' => 'massimi caratteri consentiti sono :max',
-            'artists.max' => 'massimi caratteri consentiti sono :max',
-            'writers.max' => 'massimi caratteri consentiti sono :max',
-
-
-
-            
-        ])->validate();
-
-    }
+   
 
 
 
