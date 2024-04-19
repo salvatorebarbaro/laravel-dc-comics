@@ -27,7 +27,7 @@ Dobbiamo inserirlo in ogni form. -->
                 <!-- fine -->
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label text-uppercase">descriozione del fumetto</label>
+            <label for="description" class="form-label text-uppercase">descrizione del fumetto</label>
             <!-- name campo da inserire perchè ci facilità la gestione del campo come per esempio in questo caso il nome -->
             <!-- old description è stato inserito perchè facendo cio i dati inseriti dall'utente anche se sbagliati gli vengono fatti rivedere -->
             <textarea type="text" class="form-control @error('description')is-invalid @enderror" id="description" name="description" > {{ old ('description' )}}</textarea>
