@@ -1,14 +1,16 @@
 import './bootstrap';
 
-import * as bootstrap from 'bootstrap'
-
+	
 // Import our custom CSS
 import '~resources/scss/app.scss'
 
-
+// import Bootstrap JS
 import '~bootstrap/js/index.esm.js'
 
-// resources/js/app.js // pre compilazione delle immagini
+
+
+
+// precompilazione immagini
 import.meta.glob([
     '../img/**'
-    ])
+])
